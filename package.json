@@ -1,0 +1,17 @@
+{
+  "name": "presschain",
+  "version": "1.0.0",
+  "description": "AI Agent for citizen journalists — publish reports and get paid via x402 on Base Network",
+  "main": "agent/index.js",
+  "scripts": {
+    "start": "node agent/index.js",
+    "demo": "node agent/index.js"
+  },
+  "keywords": ["citizen-journalism", "base", "x402", "ipfs", "ai-agent", "synthesis-2026"],
+  "author": "Yusup Sapari",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "ethers": "^6.0.0"
+  }
+}
