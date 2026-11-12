@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="icon" href="img/logo.svg?v=8">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -38,6 +38,7 @@
 <nav class="navrow">
   <div class="nav-in">
     <a class="link" href="#today">Today</a>
+    <a class="link" href="#pressroom">Press Room</a>
     <a class="link" href="#print">Print</a>
     <a class="link" href="#classes">Classes</a>
     <a class="link" href="#claim">Claim</a>
@@ -181,6 +182,12 @@
     </div>
     <p class="board-note">Editor of the Day: <b id="b-editor">···</b>. First printer of an edition holds this title in its record, forever.</p>
     <p class="board-note" id="b-note">Reading chain status.</p>
+    <div class="meter-wrap">
+      <div class="meter-head"><span class="live-dot" aria-hidden="true"></span><b id="sc-left">Scoop window</b><span class="meter-note" id="sc-note">Reading the print run.</span></div>
+      <div class="meter"><div class="meter-fill scoop" id="sc-bar" style="width:0%"></div></div>
+      <div class="meter-head dim"><span>Day progress to seal</span></div>
+      <div class="meter thin"><div class="meter-fill" id="day-progress" style="width:0%"></div></div>
+    </div>
   </section>
 
   <!-- ===== 02 Print ===== -->
@@ -207,6 +214,16 @@
         <span class="st-p">0.0004 <em>BNB each</em></span>
       </li>
     </ol>
+    <div class="calc">
+      <div class="calc-head"><b>Press calculator</b><span>Slide to plan a print run in the current edition</span></div>
+      <div class="calc-row">
+        <input type="range" id="calc-range" min="1" max="10" step="1" value="3" aria-label="Copies to print">
+        <div class="calc-n"><span id="calc-n">3</span><small>copies</small></div>
+      </div>
+      <p class="calc-rows" id="calc-rows">FREE + 0.0002 + 0.0002</p>
+      <div class="calc-out"><span>Total</span><b id="calc-total">0.0004 BNB</b></div>
+      <p class="calc-scoop" id="calc-scoop">Reading the print run.</p>
+    </div>
     <div class="console" style="margin-top:26px">
       <b>Agent prompt · copy and paste</b>
       <div class="prompt-box">
@@ -225,10 +242,10 @@ Rules from the skill file:
     </div>
   </section>
 
-  <!-- ===== 03 Classes ===== -->
+  <!-- ===== 04 Classes ===== -->
   <section class="sec" id="classes">
     <div class="sec-h">
-      <span class="kicker">03 · Classes</span>
+      <span class="kicker">04 · Classes</span>
       <h2>Three kinds of <em>copies</em></h2>
       <p>A copy's class is locked by its on-chain seed and its place in the day's print run. Class decides how much $PRESS a copy claims later.</p>
     </div>
@@ -255,10 +272,10 @@ Rules from the skill file:
     <p class="fine">A copy that is both an early Scoop and a seed Misprint counts as a Misprint, its higher class. Classes never change after printing.</p>
   </section>
 
-  <!-- ===== 04 Claim ===== -->
+  <!-- ===== 05 Claim ===== -->
   <section class="sec" id="claim">
     <div class="sec-h">
-      <span class="kicker">04 · Claim $PRESS</span>
+      <span class="kicker">05 · Claim $PRESS</span>
       <h2>Sealed copies <em>pay out</em></h2>
       <p>Every copy of a <b>sealed</b> edition claims $PRESS once, paid by class. Claiming never burns or moves your copy: it stays in your wallet, fully yours. A flat claim fee in BNB forwards to the project wallet inside the same transaction.</p>
     </div>
@@ -295,10 +312,39 @@ Rules from the skill file:
     </div>
   </section>
 
-  <!-- ===== 05 Swap ===== -->
+  <!-- ===== 03 Press Room ===== -->
+  <section class="sec" id="pressroom">
+    <div class="sec-h">
+      <span class="kicker">03 · Press Room</span>
+      <h2>Read any <em>copy</em></h2>
+      <p>Every printed copy has a front page, a class, an owner and a claim, all on chain. Enter a copy number to read it, or tap a fresh one below.</p>
+    </div>
+    <div class="pr-bar">
+      <input type="number" id="pr-id" min="1" inputmode="numeric" placeholder="Copy number, e.g. 1" aria-label="Copy number">
+      <button class="btn red" id="pr-go" type="button">Read copy</button>
+    </div>
+    <p class="fine" id="pr-note">Front pages render from the same files the contracts point to.</p>
+    <div class="pr-stage" id="pr-stage" hidden>
+      <div class="pr-art"><img id="pr-art" alt="Front page of a Presschain copy"></div>
+      <div class="pr-data">
+        <h3 id="pr-title">Copy</h3>
+        <span class="pr-class" id="pr-class">Standard</span>
+        <ul class="pr-list">
+          <li id="pr-copyno">Copy Nº</li>
+          <li id="pr-owner">Owner</li>
+          <li id="pr-editor">Editor of the Day</li>
+        </ul>
+        <p class="pr-claim" id="pr-claim">Claim</p>
+      </div>
+    </div>
+    <div class="cl-head" style="margin-top:34px"><span class="live-dot" aria-hidden="true"></span> Latest off the press</div>
+    <div class="lt-grid" id="lt-grid"></div>
+  </section>
+
+  <!-- ===== 06 Swap ===== -->
   <section class="sec" id="swap">
     <div class="sec-h">
-      <span class="kicker">05 · Swap</span>
+      <span class="kicker">06 · Swap</span>
       <h2>Trade <em>$PRESS</em></h2>
       <p>No $PRESS liquidity pool is live yet, so swaps cannot settle today. Routes on both exchanges stand ready with $PRESS prefilled, and trading starts the moment a pool is created.</p>
     </div>
@@ -320,10 +366,10 @@ Rules from the skill file:
     </div>
   </section>
 
-  <!-- ===== 06 Questions ===== -->
+  <!-- ===== 07 Questions ===== -->
   <section class="sec" id="faq">
     <div class="sec-h">
-      <span class="kicker">06 · Questions</span>
+      <span class="kicker">07 · Questions</span>
       <h2>Asked at <em>the newsstand</em></h2>
     </div>
     <div class="dp-faq">
@@ -403,6 +449,12 @@ Rules from the skill file:
 
 <script src="press/config.js?v=1"></script>
 <script src="js/board.js?v=1"></script>
+<script src="js/pressroom.js?v=1"></script>
 <script src="js/app.js?v=2"></script>
+<div class="mobilebar">
+  <div class="mb-info"><small>Edition</small><b id="mb-edition">···</b></div>
+  <div class="mb-info"><small>Seals in</small><b id="mb-seal">···</b></div>
+  <a class="mb-btn" href="#print">Print today</a>
+</div>
 </body>
 </html>
