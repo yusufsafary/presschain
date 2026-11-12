@@ -24,6 +24,21 @@
   wireCopy("copy-prompt-claim", "claim-prompt", "Copy prompt");
   wireCopy("copy-token", "token-addr", "Copy address");
 
+  /* Jam UTC live di utility bar: "THU 12 NOV 2026 · 01:23:45 UTC". */
+  var clock = $("utc-clock");
+  if (clock) {
+    var DAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    var MONS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    var tickClock = function () {
+      var d = new Date();
+      clock.textContent = DAYS[d.getUTCDay()] + " " + pad(d.getUTCDate()) + " " + MONS[d.getUTCMonth()] + " " + d.getUTCFullYear() +
+        " · " + pad(d.getUTCHours()) + ":" + pad(d.getUTCMinutes()) + ":" + pad(d.getUTCSeconds()) + " UTC";
+    };
+    tickClock();
+    setInterval(tickClock, 1000);
+  }
+
   if ("IntersectionObserver" in window) {
     var rvEls = document.querySelectorAll(".sec, .facts-band, .board, .perk, .steps-l li, .swap-card");
     var rvIO = new IntersectionObserver(function (entries) {
