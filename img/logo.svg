@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Presschain fold">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Presschain">
   <path d="M34 12 H76 L108 44 V88 a20 20 0 0 1 -20 20 H34 a22 22 0 0 1 -22 -22 V34 a22 22 0 0 1 22 -22 Z" fill="#d92b1f"/>
   <path d="M76 12 V44 H108 Z" fill="#111110"/>
-  <rect x="29" y="60" width="36" height="8" rx="4" fill="#ffffff"/>
-  <rect x="29" y="76" width="24" height="8" rx="4" fill="#ffffff" opacity=".55"/>
+  <rect x="30" y="30" width="12" height="58" fill="#ffffff"/>
+  <circle cx="56" cy="45" r="13" fill="none" stroke="#ffffff" stroke-width="8.5"/>
+  <circle cx="56" cy="45" r="4.2" fill="#111110"/>
 </svg>
