@@ -250,7 +250,7 @@ b, strong { font-weight: 700; }
 
 /* ===== Footer ===== */
 .foot { position: relative; margin-top: 120px; background: var(--dark); color: var(--paper); padding: 0 var(--pad) 26px; overflow: hidden; }
-.foot-word { max-width: 1220px; margin: 0 auto; padding-top: 44px; font-weight: 900; font-size: clamp(52px, 10.6vw, 142px); line-height: .88; letter-spacing: -.03em; text-transform: uppercase; color: rgba(246, 244, 239, .96); }
+.foot-word { max-width: 1220px; margin: 0 auto; padding-top: 30px; font-weight: 900; font-size: clamp(32px, 6.4vw, 76px); line-height: .9; letter-spacing: -.02em; text-transform: uppercase; color: rgba(246, 244, 239, .96); }
 .foot-word i { font-style: normal; color: var(--red); }
 .foot-in { max-width: 1220px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr .7fr .7fr 1.3fr; gap: 36px; padding: 44px 0 50px; border-bottom: 1px solid rgba(246, 244, 239, .12); }
 .foot-brand .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; letter-spacing: .01em; text-transform: uppercase; }
