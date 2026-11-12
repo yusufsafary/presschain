@@ -250,8 +250,6 @@ b, strong { font-weight: 700; }
 
 /* ===== Footer ===== */
 .foot { position: relative; margin-top: 120px; background: var(--dark); color: var(--paper); padding: 0 var(--pad) 26px; overflow: hidden; }
-.foot-word { max-width: 1220px; margin: 0 auto; padding-top: 30px; font-weight: 900; font-size: clamp(32px, 6.4vw, 76px); line-height: .9; letter-spacing: -.02em; text-transform: uppercase; color: rgba(246, 244, 239, .96); }
-.foot-word i { font-style: normal; color: var(--red); }
 .foot-in { max-width: 1220px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr .7fr .7fr 1.3fr; gap: 36px; padding: 44px 0 50px; border-bottom: 1px solid rgba(246, 244, 239, .12); }
 .foot-brand .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; letter-spacing: .01em; text-transform: uppercase; }
 .foot-brand .brand img { width: 30px; height: 30px; }
@@ -437,4 +435,20 @@ html, body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .specimen, .perk.mis, .meter-fill, #b-seal { animation: none; }
   .sp-frame .fp.rot { transition: none; }
+}
+
+/* ===== v6: header dirapikan + footer tanpa pengulangan nama ===== */
+.mast { position: relative; }
+.mast::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: var(--ink); }
+.mast .brand img { filter: drop-shadow(3px 3px 0 rgba(17, 17, 16, .9)); }
+.mast-meta { border: 1.5px solid var(--ink); background: var(--card); box-shadow: 4px 4px 0 rgba(17, 17, 16, .9); padding: 9px 13px; text-align: left; }
+.navrow .link { background-image: linear-gradient(var(--red), var(--red)); background-size: 0% 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .3s var(--ease); }
+.navrow .link:hover { background-size: 100% 2px; }
+.navrow .pill { position: relative; }
+.navrow .pill::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--red); margin-right: 7px; animation: sealpulse 1.6s ease-in-out infinite; vertical-align: 1px; }
+body.scrolled .navrow { box-shadow: 0 10px 22px rgba(17, 17, 16, .13); }
+.foot-in { padding-top: 44px; }
+@media (max-width: 640px) {
+  .mast-in { flex-wrap: wrap; row-gap: 10px; }
+  .mast-meta { display: grid; margin-left: 0; width: 100%; box-shadow: none; grid-template-columns: 1fr 1fr; column-gap: 12px; }
 }

@@ -49,3 +49,10 @@
     rvEls.forEach(function (el) { el.classList.add("rv"); rvIO.observe(el); });
   }
 })();
+
+/* Bayangan navrow saat halaman digeser */
+(function () {
+  function onScroll() { document.body.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
