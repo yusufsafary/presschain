@@ -105,7 +105,11 @@
       ]).then(function (r2) {
         var sealed = asUint(r2[0]) === 1n, editor = asAddr(r2[1]);
         var amount = asUint(r2[2]), claimed = asUint(r2[3]) === 1n;
-        var img = $("pr-art"); if (img) { img.src = "art/" + id + ".svg"; img.alt = "Front page of Presschain copy " + id; }
+        var img = $("pr-art");
+        if (img) {
+          img.onerror = function () { img.onerror = null; img.src = "img/frontpage-soon.svg"; if (note) note.textContent = "Front page of copy #" + id + " is still on the press. Its chain data above is final."; };
+          img.src = "art/" + id + ".svg"; img.alt = "Front page of Presschain copy " + id;
+        }
         set("pr-title", "Copy #" + id + " · Edition Nº " + edition);
         set("pr-class", CLASSES[cls] || "Standard");
         set("pr-copyno", "Copy Nº " + copyNo + " of its edition");
@@ -148,6 +152,7 @@
         card.innerHTML = "";
         var im = document.createElement("img");
         im.src = "art/" + id + ".svg"; im.alt = "Front page of copy " + id; im.loading = "lazy";
+        im.onerror = function () { card.style.display = "none"; };
         var meta = document.createElement("span");
         meta.className = "lt-meta";
         meta.textContent = "#" + id + " · Copy Nº " + copyNo + " · " + (CLASSES[cls] || "Standard");

@@ -373,3 +373,16 @@ b, strong { font-weight: 700; }
 }
 
 .pr-stage[hidden] { display: none; }
+
+/* ===== v4: kerapian + gambar tangguh ===== */
+html, body { overflow-x: clip; }
+.spec { max-width: 100%; }
+.sheet { max-width: 92%; }
+.lt-card img { aspect-ratio: 4 / 5; object-fit: cover; background: #efe9dd; }
+.pr-art { min-height: 200px; background: #efe9dd; }
+.pr-art img { display: block; }
+.hero-art img { background: #efe9dd; }
+@media (max-width: 640px) {
+  .sheet { max-width: 86%; }
+  .spec { margin-top: 26px; }
+}

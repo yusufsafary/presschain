@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
+<rect width="1200" height="1500" fill="#f6f4ef"/>
+<rect x="26" y="26" width="1148" height="1448" fill="none" stroke="#111110" stroke-width="4"/>
+<rect x="40" y="40" width="1120" height="1420" fill="none" stroke="#111110" stroke-width="1.5"/>
+<text x="600" y="640" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="#111110" text-anchor="middle">ON THE PRESS</text>
+<text x="600" y="730" font-family="monospace" font-size="30" fill="#d92b1f" text-anchor="middle" letter-spacing="4">FRONT PAGE FOLLOWS SHORTLY</text>
+<text x="600" y="800" font-family="monospace" font-size="26" fill="#6d675c" text-anchor="middle">CHAIN DATA FOR THIS COPY IS FINAL</text>
+</svg>
