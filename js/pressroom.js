@@ -190,7 +190,37 @@
   }
   if (range) range.addEventListener("input", calcUpdate);
 
-  refreshEdition().then(latest);
+
+  /* ===== Rotator halaman depan asli di hero ===== */
+  var rotIdx = 0, rotTimer = null;
+  function setupRotator() {
+    var imgs = [$("rot-1"), $("rot-2"), $("rot-3")].filter(Boolean);
+    if (imgs.length < 2 || !state.total || state.total < 3) return;
+    var ids = [state.total, state.total - 1, state.total - 2];
+    imgs.forEach(function (im, i) {
+      im.onerror = function () { im.style.display = "none"; };
+      im.src = "art/" + ids[i] + ".svg";
+    });
+    var cap = $("rot-cap");
+    if (cap) cap.textContent = "Copy #" + ids[0] + " · Edition Nº " + state.edition;
+    if (rotTimer) clearInterval(rotTimer);
+    rotTimer = setInterval(function () {
+      imgs[rotIdx].classList.remove("on");
+      rotIdx = (rotIdx + 1) % imgs.length;
+      imgs[rotIdx].classList.add("on");
+      if (cap) cap.textContent = "Copy #" + ids[rotIdx] + " · Edition Nº " + state.edition;
+    }, 4200);
+  }
+
+  /* ===== Stempel SCOOP saat kartu terlihat ===== */
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("slam"); io.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll(".stamp-anim").forEach(function (el) { io.observe(el); });
+  }
+
+  refreshEdition().then(function () { latest(); setupRotator(); });
   setInterval(refreshEdition, 30000);
   setInterval(tickCountdown, 1000);
 })();
