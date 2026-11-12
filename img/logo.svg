@@ -1,5 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Presschain">
-  <rect x="2" y="2" width="92" height="92" rx="10" fill="#101010"/>
-  <text x="48" y="64" font-family="Archivo, Arial, sans-serif" font-size="54" font-weight="900" fill="#ffffff" text-anchor="middle">P</text>
-  <rect x="31" y="73" width="34" height="6" fill="#d92b1f"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Presschain">
+  <rect x="2" y="2" width="116" height="116" rx="16" fill="#111110"/>
+  <path d="M30 20 H76 L92 36 V100 H30 Z" fill="#ffffff"/>
+  <path d="M76 20 V36 H92 Z" fill="#b9b3a4"/>
+  <rect x="38" y="27" width="30" height="5" fill="#d92b1f"/>
+  <rect x="38" y="35" width="30" height="2.4" fill="#111110"/>
+  <g transform="translate(21.3 28.5) scale(0.52)">
+    <path fill="#111110" fill-rule="evenodd" d="M36 94 V26 H64 C80 26 90 34 90 44 C90 54 80 62 64 62 H52 V94 Z M52 38 H63 C69 38 73 40.6 73 44 C73 47.4 69 50 63 50 H52 Z"/>
+  </g>
+  <rect x="73" y="48" width="13" height="4" fill="#8f8a7d"/>
+  <rect x="73" y="57" width="13" height="4" fill="#8f8a7d"/>
+  <rect x="73" y="66" width="13" height="4" fill="#8f8a7d"/>
+  <rect x="73" y="75" width="13" height="4" fill="#8f8a7d"/>
 </svg>
